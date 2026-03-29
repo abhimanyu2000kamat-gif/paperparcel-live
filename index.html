@@ -1,51 +1,45 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PaperParcel - Courier Services Faridabad</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-900 font-sans">
-    <nav class="bg-white shadow-md p-4 flex justify-between items-center">
-        <h1 class="text-2xl font-bold text-orange-600 tracking-tight">PaperParcel</h1>
-        <div class="space-x-4">
-            <a href="#" class="hover:text-orange-500">Home</a>
-            <a href="#calculator" class="bg-orange-600 text-white px-4 py-2 rounded">Book Now</a>
-        </div>
-    </nav>
-
-    <header class="py-20 text-center bg-orange-50">
-        <h2 class="text-5xl font-extrabold mb-4">Fastest Delivery in Faridabad</h2>
-        <p class="text-xl text-gray-600 mb-8">Starting at just ₹70 for the first 2km!</p>
-    </header>
-
-    <section id="calculator" class="max-w-md mx-auto my-12 p-8 bg-white rounded-xl shadow-lg border border-gray-100">
-        <h3 class="text-2xl font-bold mb-6">Price Calculator</h3>
-        <div class="space-y-4 text-left">
-            <label class="block font-medium">Distance (in km):</label>
-            <input type="number" id="distance" class="w-full border p-3 rounded bg-gray-50" placeholder="e.g. 5">
-            <button onclick="calculate()" class="w-full bg-orange-600 text-white py-3 rounded-lg font-bold hover:bg-orange-700 transition">Calculate Fare</button>
-            <div id="result" class="mt-4 p-4 bg-green-50 text-green-800 rounded hidden font-semibold text-center text-lg"></div>
-        </div>
-    </section>
-
-    <footer class="bg-gray-900 text-white p-8 text-center text-sm">
-        <p>&copy; 2026 PaperParcel Faridabad | Terms: ₹2/min waiting charge after 10 mins.</p>
-    </footer>
-
-    <script>
-        function calculate() {
-            let dist = document.getElementById('distance').value;
-            let total = 70;
-            if(dist > 2) total += (dist - 2) * 10;
-            let gst = total * 0.18;
-            let fuel = total * 0.05;
-            let final = (total + gst + fuel).toFixed(2);
-            let res = document.getElementById('result');
-            res.innerHTML = "Total Estimate: ₹" + final + " (Incl. GST & Fuel)";
-            res.classList.remove('hidden');
+    <title>Loading...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
         }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="contentFrame" src="https://app.emergent.sh/loading-preview?host=paperparcel-preview.preview.emergentagent.com" allowfullscreen></iframe>
+    <script>
+        // Listen for messages from the iframe
+        window.addEventListener('message', function(event) {
+
+        	console.log(event.origin);
+            // Optional: Add origin check for security
+            // if (!['https://dev.emergentagent.com', 'https://app.emergent.sh'].includes(event.origin)) return;
+
+            if (event.data && event.data.type === 'reload') {
+                const iframe = document.getElementById('contentFrame');
+                window.location.reload();
+            }
+
+            if (event.data && event.data.type === 'url') {
+                const iframe = document.getElementById('contentFrame');
+                window.open(event.data.url, '_blank');
+            }
+        });
     </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e3d89b53b9eb62a',t:'MTc3NDc3MzI5Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"7f7b0fd8732c4326aae4b9d58d5c514a","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
